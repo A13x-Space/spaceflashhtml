@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloxors</title>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        #game-container {
+            position: relative;
+            width: 800px;
+            height: 600px;
+        }
+        #fullscreen-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #fullscreen-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bloxors</h1>
+    <p>If the game doesn't load, ensure Ruffle is enabled in your browser.</p>
+    <div id="game-container">
+        <embed id="game" src="bloxors2.swf" width="100%" height="100%" type="application/x-shockwave-flash">
+    </div>
+    <button id="fullscreen-btn">Go Fullscreen</button>
+
+    <script>
+        const gameContainer = document.getElementById('game-container');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+        fullscreenBtn.addEventListener('click', () => {
+            if (gameContainer.requestFullscreen) {
+                gameContainer.requestFullscreen();
+            } else if (gameContainer.webkitRequestFullscreen) {
+                gameContainer.webkitRequestFullscreen();
+            } else if (gameContainer.mozRequestFullScreen) {
+                gameContainer.mozRequestFullScreen();
+            } else if (gameContainer.msRequestFullscreen) {
+                gameContainer.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>

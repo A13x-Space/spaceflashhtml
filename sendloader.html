@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loader</title>
+  <script>
+    function loadPage() {
+      const dropdown = document.getElementById('pageDropdown');
+      const selectedPage = dropdown.value;
+      if (selectedPage) {
+        window.location.href = selectedPage; // Change to your relative HTML file paths
+      } else {
+        alert('Please select a page to load.');
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Load an HTML Page</h1>
+  <label for="pageDropdown">Choose a page:</label>
+  <select id="pageDropdown">
+    <option value="">-- Select a page --</option>
+    <option value="bloxors2.html">edited-page</option>
+    <option value="bloxors.html">normal-page</option>
+    <option value="bloxors.swf">swf file</option>
+  </select>
+  <button onclick="loadPage()">Load</button>
+</body>
+</html>
